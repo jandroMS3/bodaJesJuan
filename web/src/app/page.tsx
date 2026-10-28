@@ -2,13 +2,10 @@ import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
-  BedDouble,
   Bus,
   CalendarDays,
-  Car,
   Clock3,
   MapPin,
-  Shirt,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SiteHeader } from "@/components/site-header";
@@ -16,30 +13,22 @@ import { texts } from "@/content/texts";
 
 const information = [
   {
-    icon: MapPin,
-    index: "01",
     ...texts.information.items[0],
-    action: { label: texts.information.items[0].actionLabel, href: texts.venue.mapsUrl },
+    map: { src: texts.venue.mapsEmbedUrl, title: texts.venue.mapTitle },
   },
   {
-    icon: Bus,
-    index: "02",
     ...texts.information.items[1],
-    action: undefined,
+    map: null,
   },
   {
-    icon: BedDouble,
-    index: "03",
     ...texts.information.items[2],
     body: texts.hotel.name,
     detail: texts.hotel.note,
-    action: { label: texts.information.items[2].actionLabel, href: texts.hotel.mapsUrl },
+    map: { src: texts.hotel.mapsEmbedUrl, title: texts.hotel.mapTitle },
   },
   {
-    icon: Shirt,
-    index: "04",
     ...texts.information.items[3],
-    action: undefined,
+    map: null,
   },
 ];
 
@@ -183,16 +172,6 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <a
-              className="text-link text-link--light"
-              href={texts.venue.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              data-reveal
-            >
-              {texts.day.directionsLink} <ArrowUpRight aria-hidden="true" />
-              <span className="sr-only">{texts.externalLinkNote}</span>
-            </a>
           </div>
         </section>
 
@@ -203,27 +182,23 @@ export default function Home() {
           </header>
           <div className="information__list">
             {information.map((item) => {
-              const Icon = item.icon;
               return (
                 <article className="information__item" key={item.title} data-reveal>
-                  <span className="information__index">{item.index}</span>
-                  <Icon className="information__icon" aria-hidden="true" />
                   <div>
                     <h3>{item.title}</h3>
                     <p className="information__body">{item.body}</p>
                     <p className="information__detail">{item.detail}</p>
-                    {item.action ? (
-                      <a
-                        className="text-link"
-                        href={item.action.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {item.action.label} <ArrowUpRight aria-hidden="true" />
-                        <span className="sr-only">
-                          {texts.externalLinkNote}
-                        </span>
-                      </a>
+                    {item.map ? (
+                      <iframe
+                        className="information__map"
+                        title={item.map.title}
+                        src={item.map.src}
+                        width="600"
+                        height="450"
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                      />
                     ) : null}
                   </div>
                 </article>
@@ -239,7 +214,7 @@ export default function Home() {
                 <span>{texts.transportLabels.return} {route.returnTime}</span>
               </div>
             ))}
-            <Car aria-hidden="true" />
+            <Bus aria-hidden="true" />
           </div>
         </section>
 
@@ -339,10 +314,6 @@ export default function Home() {
           <p>{texts.footer.privacy}</p>
         </details>
       </footer>
-
-      <a className="mobile-rsvp" href="#rsvp">
-        {texts.rsvpSection.button}
-      </a>
     </>
   );
 }

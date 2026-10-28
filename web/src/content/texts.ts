@@ -23,6 +23,9 @@ export const texts = {
     location: "Bétera",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Mas%C3%ADa+del+Olivar+B%C3%A9tera+Valencia",
+    mapsEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30000!2d-0.4689735!3d39.5998077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd605cc0d66b462d%3A0x3dfdbccb3e140292!2sMas%C3%ADa%20del%20Olivar%20%7C%20Bodas%2C%20Eventos%20en%20Valencia!5e0!3m2!1sen!2ses!4v1793224539485!5m2!1sen!2ses",
+    mapTitle: "Mapa de Masía del Olivar",
   },
   rsvp: {
     deadline: "28 de febrero de 2027",
@@ -46,6 +49,9 @@ export const texts = {
     address: "Carrer Botxí, 6-8 · Torre en Conill · Bétera",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=Ad+Hoc+Parque+Hotel+B%C3%A9tera",
+    mapsEmbedUrl:
+      "https://www.google.com/maps?q=Ad+Hoc+Parque+Hotel+B%C3%A9tera&output=embed",
+    mapTitle: "Mapa de Ad Hoc Parque Hotel",
     note: "Al reservar por teléfono, indicad que venís de parte de los novios para acceder al descuento.",
   },
   navigation: {
@@ -87,7 +93,6 @@ export const texts = {
     heading: "Nuestro gran día",
     scheduleAriaLabel: "Horarios de la celebración",
     approximate: "aprox.",
-    directionsLink: "Cómo llegar",
   },
   information: {
     eyebrow: "Nosotros ponemos la ilusión, vosotros las ganas de disfrutar.",
@@ -97,7 +102,6 @@ export const texts = {
         title: "Cómo llegar",
         body: "Os esperamos en Masía del Olivar, en Bétera, donde celebraremos tanto la ceremonia como la fiesta.",
         detail: "Aparcamiento gratuito en el recinto.",
-        actionLabel: "Abrir en Maps",
       },
       {
         title: "Autobuses",
@@ -106,7 +110,6 @@ export const texts = {
       },
       {
         title: "Alojamiento",
-        actionLabel: "Ad Hoc Parque dispone de una tarifa especial para nuestros invitados. Solo tenéis que llamar e indicar que venís a nuestra boda.",
       },
       {
         title: "Vestimenta",
