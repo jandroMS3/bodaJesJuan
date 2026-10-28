@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-display: "Cormorant Garamond";
+  --font-body: "Manrope";
   --ivory: #f5f1e8;
   --olive: #596044;
   --charcoal: #292d27;

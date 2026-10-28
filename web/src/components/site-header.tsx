@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import { texts } from "@/content/texts";
 
 export function SiteHeader() {
   useEffect(() => {
@@ -19,11 +20,11 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <a className="logo-link" href="#inicio" aria-label="Jes y Juan, volver al inicio">
+      <a className="logo-link" href="#inicio" aria-label={texts.navigation.homeAriaLabel}>
         <Image
           className="header-logo"
           src="/images/logoBodaNegro.png"
-          alt="Jes y Juan"
+          alt={texts.navigation.logoAlt}
           width={153}
           height={102}
           priority

@@ -12,38 +12,34 @@ import {
 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SiteHeader } from "@/components/site-header";
-import { wedding } from "@/content/wedding";
+import { texts } from "@/content/texts";
 
 const information = [
   {
     icon: MapPin,
     index: "01",
-    title: "Cómo llegar",
-    body: "La ceremonia y la celebración tendrán lugar en Masía del Olivar, en Bétera.",
-    detail: "Aparcamiento gratuito en el recinto.",
-    action: { label: "Abrir en Maps", href: wedding.venue.mapsUrl },
+    ...texts.information.items[0],
+    action: { label: texts.information.items[0].actionLabel, href: texts.venue.mapsUrl },
   },
   {
     icon: Bus,
     index: "02",
-    title: "Autobuses",
-    body: "Habrá servicio de ida y vuelta desde Valencia y Vila-real.",
-    detail: "Valencia 11:00 · Vila-real 10:30 · Regreso 00:00",
+    ...texts.information.items[1],
+    action: undefined,
   },
   {
     icon: BedDouble,
     index: "03",
-    title: "Alojamiento",
-    body: wedding.hotel.name,
-    detail: wedding.hotel.note,
-    action: { label: "Ver hotel", href: wedding.hotel.mapsUrl },
+    ...texts.information.items[2],
+    body: texts.hotel.name,
+    detail: texts.hotel.note,
+    action: { label: texts.information.items[2].actionLabel, href: texts.hotel.mapsUrl },
   },
   {
     icon: Shirt,
     index: "04",
-    title: "Vestimenta",
-    body: "Formal · boda de día",
-    detail: "Elegante, natural y preparada para disfrutar hasta el final.",
+    ...texts.information.items[3],
+    action: undefined,
   },
 ];
 
@@ -51,7 +47,7 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#contenido">
-        Saltar al contenido
+        {texts.navigation.skipToContent}
       </a>
       <SiteHeader />
       <ScrollReveal />
@@ -60,7 +56,7 @@ export default function Home() {
         <section className="hero" id="inicio" aria-labelledby="hero-title">
           <Image
             src="/images/fotoBicisAtardecer.jpg"
-            alt="Jes y Juan en bicicleta al atardecer"
+            alt={texts.hero.imageAlt}
             fill
             priority
             sizes="100vw"
@@ -68,31 +64,31 @@ export default function Home() {
           />
           <div className="hero__shade" aria-hidden="true" />
           <div className="hero__content">
-            <p className="eyebrow hero__eyebrow">Guarda la fecha</p>
-            <h1 id="hero-title">{wedding.couple}</h1>
-            <p className="hero__date">{wedding.date.short}</p>
+            <p className="eyebrow hero__eyebrow">{texts.hero.eyebrow}</p>
+            <h1 id="hero-title">{texts.couple}</h1>
+            <p className="hero__date">{texts.date.short}</p>
             <p className="hero__place">
-              {wedding.venue.name} · Bétera
+              {texts.venue.name} · {texts.venue.location}
             </p>
           </div>
           <a className="hero__scroll" href="#anuncio">
-            Descubre el día <ArrowDown aria-hidden="true" />
+            {texts.hero.scrollLink} <ArrowDown aria-hidden="true" />
           </a>
         </section>
 
         <section className="announcement section" id="anuncio">
           <div className="announcement__rule" aria-hidden="true" />
           <p className="eyebrow" data-reveal>
-            {wedding.date.weekday}
+            {texts.date.weekday}
           </p>
-          <h2 data-reveal>Nos casamos.</h2>
+          <h2 data-reveal>{texts.announcement.title}</h2>
           <div className="announcement__details" data-reveal>
-            <p>{wedding.date.long}</p>
-            <span>{wedding.monogram}</span>
+            <p>{texts.date.long}</p>
+            <span>{texts.monogram}</span>
             <p>
-              {wedding.venue.name}
+              {texts.venue.name}
               <br />
-              {wedding.venue.city}
+              {texts.venue.city}
             </p>
           </div>
         </section>
@@ -101,88 +97,87 @@ export default function Home() {
           <div className="story__image" data-reveal>
             <Image
               src="/images/portrait.jpg"
-              alt="Una pareja se abraza durante su sesión de preboda"
+              alt={texts.story.imageAlt}
               fill
               sizes="(max-width: 760px) 90vw, 44vw"
             />
-            <span className="image-index">01 / 05</span>
+            <span className="image-index">{texts.story.imageIndex}</span>
           </div>
           <div className="story__copy" data-reveal>
-            <p className="eyebrow">Jes & Juan</p>
+            <p className="eyebrow">{texts.story.eyebrow}</p>
             <h2>
-              Elegirnos.
+              {texts.story.titleFirstLine}
               <br />
-              Una y otra vez.
+              {texts.story.titleSecondLine}
             </h2>
             <p>
-              Muchos kilómetros, planes y recuerdos después, queremos celebrar
-              con vosotros uno de los días más importantes de nuestro recorrido.
+              {texts.story.paragraph}
             </p>
-            <p>Nos hará muchísima ilusión que forméis parte de él.</p>
+            <p>{texts.story.closing}</p>
           </div>
         </section>
 
-        <section className="editorial section" aria-label="Recuerdos juntos">
+        <section className="editorial section" aria-label={texts.editorial.ariaLabel}>
           <div className="editorial__title" data-reveal>
-            <p className="eyebrow">Nuestro recorrido</p>
+            <p className="eyebrow">{texts.editorial.eyebrow}</p>
             <h2>
-              Juntos
+              {texts.editorial.titleFirstLine}
               <br />
-              es mejor.
+              {texts.editorial.titleSecondLine}
             </h2>
           </div>
           <figure className="editorial__image editorial__image--one" data-reveal>
             <Image
               src="/images/editorial-one.jpg"
-              alt="Pareja celebrando junta al aire libre"
+              alt={texts.editorial.firstImageAlt}
               fill
               sizes="(max-width: 760px) 78vw, 38vw"
             />
-            <figcaption>Valencia · Nuestro lugar</figcaption>
+            <figcaption>{texts.editorial.firstCaption}</figcaption>
           </figure>
           <figure className="editorial__image editorial__image--two" data-reveal>
             <Image
               src="/images/editorial-two.jpg"
-              alt="Un instante espontáneo de una celebración"
+              alt={texts.editorial.secondImageAlt}
               fill
               sizes="(max-width: 760px) 88vw, 48vw"
             />
-            <figcaption>Seguir avanzando · Siempre</figcaption>
+            <figcaption>{texts.editorial.secondCaption}</figcaption>
           </figure>
           <p className="editorial__note" data-reveal>
-            Dos caminos.
+            {texts.editorial.noteFirstLine}
             <br />
-            Una misma dirección.
+            {texts.editorial.noteSecondLine}
           </p>
         </section>
 
         <section className="day section section--olive" id="el-dia">
           <div className="day__heading" data-reveal>
-            <p className="eyebrow">El día</p>
-            <p className="day__number">17</p>
+            <p className="eyebrow">{texts.day.heading}</p>
+            <p className="day__number">{texts.date.day}</p>
             <h2>
-              Abril
+              {texts.date.month}
               <br />
-              2027
+              {texts.date.year}
             </h2>
           </div>
           <div className="day__content">
             <div className="day__venue" data-reveal>
               <MapPin aria-hidden="true" />
               <div>
-                <h3>{wedding.venue.name}</h3>
-                <p>{wedding.venue.city}</p>
+                <h3>{texts.venue.name}</h3>
+                <p>{texts.venue.city}</p>
               </div>
             </div>
-            <ol className="timeline" aria-label="Horarios de la celebración">
-              {wedding.schedule.map((event, index) => (
+            <ol className="timeline" aria-label={texts.day.scheduleAriaLabel}>
+              {texts.schedule.map((event, index) => (
                 <li key={event.label} data-reveal>
                   <span>0{index + 1}</span>
                   <time>{event.time}</time>
                   <p>
                     {event.label}
                     {"approximate" in event && event.approximate ? (
-                      <small>aprox.</small>
+                      <small>{texts.day.approximate}</small>
                     ) : null}
                   </p>
                 </li>
@@ -190,21 +185,21 @@ export default function Home() {
             </ol>
             <a
               className="text-link text-link--light"
-              href={wedding.venue.mapsUrl}
+              href={texts.venue.mapsUrl}
               target="_blank"
               rel="noreferrer"
               data-reveal
             >
-              Cómo llegar <ArrowUpRight aria-hidden="true" />
-              <span className="sr-only"> (se abre en una pestaña nueva)</span>
+              {texts.day.directionsLink} <ArrowUpRight aria-hidden="true" />
+              <span className="sr-only">{texts.externalLinkNote}</span>
             </a>
           </div>
         </section>
 
         <section className="information section" id="informacion">
           <header className="section-heading" data-reveal>
-            <p className="eyebrow">Para que solo tengáis que disfrutar</p>
-            <h2>Información práctica</h2>
+            <p className="eyebrow">{texts.information.eyebrow}</p>
+            <h2>{texts.information.title}</h2>
           </header>
           <div className="information__list">
             {information.map((item) => {
@@ -226,7 +221,7 @@ export default function Home() {
                       >
                         {item.action.label} <ArrowUpRight aria-hidden="true" />
                         <span className="sr-only">
-                          {" "}(se abre en una pestaña nueva)
+                          {texts.externalLinkNote}
                         </span>
                       </a>
                     ) : null}
@@ -237,79 +232,78 @@ export default function Home() {
           </div>
           <div className="transport-strip" data-reveal>
             <Bus aria-hidden="true" />
-            {wedding.transport.map((route) => (
+            {texts.transport.map((route) => (
               <div key={route.origin}>
                 <strong>{route.origin}</strong>
-                <span>Salida {route.departure}</span>
-                <span>Regreso {route.returnTime}</span>
+                <span>{texts.transportLabels.departure} {route.departure}</span>
+                <span>{texts.transportLabels.return} {route.returnTime}</span>
               </div>
             ))}
             <Car aria-hidden="true" />
           </div>
         </section>
 
-        <section className="transition-section" aria-label="Nuestro recorrido">
+        <section className="transition-section" aria-label={texts.transition.ariaLabel}>
           <Image
             src="/images/transition.jpg"
-            alt="Carretera abierta entre campos al atardecer"
+            alt={texts.transition.imageAlt}
             fill
             sizes="100vw"
           />
           <div className="transition-section__shade" aria-hidden="true" />
           <blockquote data-reveal>
-            Seguimos sumando kilómetros.
+            {texts.transition.quoteFirstLine}
             <br />
-            <em>Este es uno de los importantes.</em>
+            <em>{texts.transition.quoteSecondLine}</em>
           </blockquote>
         </section>
 
         <section className="rsvp section" id="rsvp">
           <div className="rsvp__intro" data-reveal>
-            <p className="eyebrow">Confirmación</p>
-            <h2>¿Vienes?</h2>
+            <p className="eyebrow">{texts.rsvpSection.eyebrow}</p>
+            <h2>{texts.rsvpSection.title}</h2>
             <p>
-              Nos hará muchísima ilusión celebrarlo contigo. Confirma antes del
-              {" "}{wedding.rsvp.deadline}.
+              {texts.rsvpSection.invitation} {texts.rsvp.deadline}.
             </p>
           </div>
           <div className="rsvp__panel" data-reveal>
-            <span className="rsvp__monogram">{wedding.monogram}</span>
+            <span className="rsvp__monogram">{texts.monogram}</span>
             <div className="rsvp__facts">
               <p>
                 <CalendarDays aria-hidden="true" />
-                Una respuesta por persona
+                {texts.rsvpSection.facts[0]}
               </p>
               <p>
                 <Bus aria-hidden="true" />
-                Indica los trayectos que necesitas
+                {texts.rsvpSection.facts[1]}
               </p>
               <p>
                 <Clock3 aria-hidden="true" />
-                Te llevará menos de dos minutos
+                {texts.rsvpSection.facts[2]}
               </p>
             </div>
             <a
               className="primary-button"
-              href={wedding.rsvp.url}
+              href={texts.rsvp.url}
               target="_blank"
               rel="noreferrer"
             >
-              Confirmar asistencia <ArrowUpRight aria-hidden="true" />
-              <span className="sr-only"> (se abre en una pestaña nueva)</span>
+              {texts.rsvpSection.button} <ArrowUpRight aria-hidden="true" />
+              <span className="sr-only">{texts.externalLinkNote}</span>
             </a>
             <p className="rsvp__help">
-              Puedes enviar otra respuesta si estás ayudando a un familiar.
+              {texts.rsvpSection.help}
             </p>
           </div>
         </section>
 
         <section className="faq section" aria-labelledby="faq-title">
           <header className="section-heading" data-reveal>
-            <p className="eyebrow">Lo que quizá quieras saber</p>
-            <h2 id="faq-title">Antes del gran día</h2>
+            <p className="eyebrow">{texts.faq.eyebrow}</p>
+            <h2 id="faq-title">{texts.faq.title}</h2>
           </header>
           <div className="faq__list">
-            {wedding.faq.map((item, index) => (
+            {texts.faq.items.map((item, index) => (
               <details key={item.question} data-reveal>
                 <summary>
                   <span>0{index + 1}</span>
@@ -322,35 +316,32 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="closing" aria-label="Cierre">
+        <section className="closing" aria-label={texts.closing.ariaLabel}>
           <Image
             src="/images/hero-field.jpg"
-            alt="Pareja alejándose junta por el campo"
+            alt={texts.closing.imageAlt}
             fill
             sizes="100vw"
           />
           <div className="closing__shade" aria-hidden="true" />
           <div className="closing__content" data-reveal>
-            <p>Nos vemos el 17.</p>
-            <span>{wedding.monogram}</span>
-            <time dateTime={wedding.date.iso}>{wedding.date.short}</time>
+            <p>{texts.closing.message}</p>
+            <span>{texts.monogram}</span>
+            <time dateTime={texts.date.iso}>{texts.date.short}</time>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <p>{wedding.monogram} · Bétera · 2027</p>
+        <p>{texts.monogram} · {texts.footer.location} · {texts.date.year}</p>
         <details>
-          <summary>Privacidad</summary>
-          <p>
-            Los datos del formulario se utilizarán únicamente para organizar la
-            boda y serán accesibles solo por la pareja y las personas autorizadas.
-          </p>
+          <summary>{texts.footer.privacyTitle}</summary>
+          <p>{texts.footer.privacy}</p>
         </details>
       </footer>
 
       <a className="mobile-rsvp" href="#rsvp">
-        Confirmar asistencia
+        {texts.rsvpSection.button}
       </a>
     </>
   );
