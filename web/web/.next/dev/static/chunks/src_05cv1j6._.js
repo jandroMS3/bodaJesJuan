@@ -291,39 +291,18 @@ const texts = {
         button: "Confirmar asistencia",
         help: "Puedes enviar otra respuesta si estás ayudando a un familiar."
     },
-    faq: {
-        eyebrow: "Para que no os falte ningún detalle",
-        title: "Antes del gran día",
-        items: [
-            {
-                question: "¿A qué hora debemos llegar?",
-                answer: "¡Os esperamos entre las 11:30 y las 11:45! La ceremonia comenzará a las 12:00."
-            },
-            {
-                question: "¿Hay aparcamiento?",
-                answer: "Sí. La Masía del Olivar dispone de aparcamiento gratuito para los invitados."
-            },
-            {
-                question: "¿Habrá autobús?",
-                answer: "Sí, habrá servicio de ida y vuelta desde Valencia y Vila-real. Podréis indicar qué trayectos necesitáis al confirmar la asistencia."
-            },
-            {
-                question: "¿Puedo ir acompañado o acompañada?",
-                answer: "Sí. Recordad que cada persona debe completar su propia confirmación. Un familiar también puede enviar varias respuestas si alguien necesita ayuda."
-            },
-            {
-                question: "¿Cómo comunico una alergia?",
-                answer: "Podéis indicarla en el formulario de confirmación. Para necesidades alimentarias complejas, poneos también en contacto directamente con nosotros."
-            },
-            {
-                question: "¿Hasta cuándo puedo confirmar?",
-                answer: "Necesitamos vuestra respuesta antes del 28 de febrero de 2027."
-            },
-            {
-                question: "¿Dónde puedo alojarme?",
-                answer: "Recomendamos el Ad Hoc Parque Hotel, en Torre en Conill. Al llamar, indicad que asistís a nuestra boda para consultar el descuento disponible."
-            }
-        ]
+    gift: {
+        eyebrow: "Un detalle",
+        title: "Regalo",
+        description: [
+            "El mejor regalo es poder compartir este día tan especial con vosotros.",
+            "Si, además, queréis tener un detalle con nosotros, podéis ayudarnos a hacer realidad todos esos sueños que todavía nos quedan por cumplir juntos."
+        ],
+        signoff: "Con todo nuestro cariño,",
+        signature: "Jesica & Juan",
+        heart: "🤍",
+        accountLabel: "Número de cuenta",
+        iban: "ES14 0182 5319 7000 0218 610"
     },
     closing: {
         ariaLabel: "Cierre",

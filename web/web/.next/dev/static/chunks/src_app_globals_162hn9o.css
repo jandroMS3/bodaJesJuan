@@ -530,10 +530,19 @@ button, summary, a {
   margin: 0;
 }
 
-.announcement__details span {
-  color: var(--olive);
-  font-size: 25px;
-  font-style: italic;
+.announcement__monogram {
+  justify-self: center;
+  width: 70px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement__monogram img {
+  max-width: none;
+  position: absolute;
+  top: -17px;
+  left: -29px;
 }
 
 .story {
@@ -549,16 +558,6 @@ button, summary, a {
 
 .story__image img, .editorial__image img {
   object-fit: cover;
-}
-
-.image-index {
-  color: var(--white);
-  background: #292d27ad;
-  padding: 4px 8px;
-  font-size: 9px;
-  position: absolute;
-  bottom: 10px;
-  right: 12px;
 }
 
 .story__copy {
@@ -607,9 +606,17 @@ button, summary, a {
   margin-left: auto;
 }
 
+.editorial__image--one img {
+  object-position: center bottom;
+}
+
 .editorial__image--two {
   width: 90%;
-  height: 330px;
+  height: 396px;
+}
+
+.editorial__image--two img {
+  object-position: center 60%;
 }
 
 .editorial__image figcaption {
@@ -635,90 +642,32 @@ button, summary, a {
 }
 
 .day {
-  gap: 72px;
+  gap: 36px;
   display: grid;
 }
 
-.day__number {
+.day__title {
   font-family: var(--font-display), serif;
+  text-align: center;
   margin: 0;
-  font-size: 150px;
-  line-height: .72;
-}
-
-.day__heading h2 {
-  font-family: var(--font-display), serif;
-  text-transform: uppercase;
-  margin: 40px 0 0;
-  font-size: 52px;
+  font-size: 42px;
   font-weight: 400;
-  line-height: .85;
+  line-height: 1;
 }
 
-.day__venue {
-  border-bottom: 1px solid #f5f1e859;
-  align-items: flex-start;
-  gap: 16px;
-  padding-bottom: 30px;
-  display: flex;
-}
-
-.day__venue svg {
-  stroke-width: 1.5px;
-  width: 19px;
-  margin-top: 4px;
-}
-
-.day__venue h3, .day__venue p {
-  margin: 0;
-}
-
-.day__venue h3 {
-  font-family: var(--font-display), serif;
-  font-size: 28px;
-  font-weight: 400;
-}
-
-.day__venue p {
-  text-transform: uppercase;
-  font-size: 11px;
-}
-
-.timeline {
-  margin: 34px 0 42px;
-  padding: 0;
-  list-style: none;
-}
-
-.timeline li {
-  border-bottom: 1px solid #f5f1e838;
-  grid-template-columns: 30px 88px 1fr;
-  align-items: baseline;
-  padding: 17px 0;
+.day__images {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
   display: grid;
 }
 
-.timeline li > span {
-  opacity: .65;
-  font-size: 9px;
-}
-
-.timeline time {
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.timeline p {
-  font-family: var(--font-display), serif;
+.day__image {
   margin: 0;
-  font-size: 25px;
 }
 
-.timeline small {
-  font-family: var(--font-body), sans-serif;
-  text-transform: uppercase;
-  opacity: .7;
-  font-size: 8px;
+.day__image img {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -797,11 +746,11 @@ button, summary, a {
 }
 
 .transport-strip {
-  color: var(--ivory);
-  background: var(--charcoal);
+  color: var(--charcoal);
+  background: none;
   grid-template-columns: 20px minmax(0, 1fr);
   gap: 22px;
-  margin-top: 58px;
+  margin-top: 28px;
   padding: 30px 14px;
   display: grid;
 }
@@ -844,7 +793,7 @@ button, summary, a {
 }
 
 .transport-strip div + div {
-  border-top: 1px solid #f5f1e833;
+  border-top: 1px solid var(--line);
   grid-area: 2 / 2;
   padding-top: 20px;
 }
@@ -868,6 +817,7 @@ button, summary, a {
   font-size: 44px;
   line-height: 1.04;
   position: relative;
+  top: -210px;
 }
 
 .transition-section em {
@@ -951,61 +901,82 @@ button, summary, a {
   font-size: 10px;
 }
 
-.faq {
-  background: var(--white);
-}
-
-.faq__list {
-  border-top: 1px solid var(--line);
-}
-
-.faq details {
-  border-bottom: 1px solid var(--line);
-}
-
-.faq summary {
-  cursor: pointer;
-  min-height: 82px;
-  font-family: var(--font-display), serif;
-  grid-template-columns: 34px 1fr 22px;
-  align-items: center;
-  gap: 8px;
-  font-size: 20px;
-  line-height: 1.25;
-  list-style: none;
+.gift {
+  gap: 42px;
   display: grid;
 }
 
-.faq summary::-webkit-details-marker {
-  display: none;
+.gift__intro h2 {
+  font-family: var(--font-display), serif;
+  margin: 0;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: .95;
 }
 
-.faq summary > span {
-  font-family: var(--font-body), sans-serif;
-  font-size: 8px;
+.gift__description {
+  max-width: 560px;
+  margin: 26px 0 0;
+  font-size: 14px;
 }
 
-.faq summary i, .faq summary i:after {
-  background: currentColor;
-  width: 16px;
-  height: 1px;
-  transition: transform .22s;
+.gift__description p {
+  margin: 0;
+}
+
+.gift__description p + p {
+  margin-top: 16px;
+}
+
+.gift__description .gift__signoff {
+  margin-top: 24px;
+}
+
+.gift__account {
+  border: 1px solid #f5f1e894;
+  padding: 26px 20px;
+}
+
+.gift__account-label {
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-size: 9px;
+  font-weight: 700;
   display: block;
 }
 
-.faq summary i:after {
-  content: "";
-  transform: rotate(90deg);
+.gift__iban {
+  overflow-wrap: anywhere;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
 }
 
-.faq details[open] summary i:after {
-  transform: rotate(0);
+.gift__copy-button {
+  color: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #f5f1e894;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  transition: background-color .2s, color .2s;
+  display: inline-flex;
 }
 
-.faq details > p {
-  max-width: 660px;
-  margin: -4px 22px 30px 42px;
-  font-size: 13px;
+.gift__copy-button:hover {
+  color: var(--olive);
+  background: var(--ivory);
+}
+
+.gift__copy-button svg {
+  width: 15px;
+  height: 15px;
 }
 
 .closing {
@@ -1028,15 +999,50 @@ button, summary, a {
   align-items: center;
   display: flex;
   position: relative;
+  top: -32px;
 }
 
 .closing__content p {
   font-family: var(--font-display), serif;
   margin: 0 0 30px;
-  font-size: 55px;
+  font-size: 45px;
+  line-height: .95;
 }
 
-.closing__content span {
+.countdown {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 340px);
+  margin-bottom: 24px;
+  display: grid;
+}
+
+.countdown__unit {
+  border-right: 1px solid #ffffff6b;
+  gap: 4px;
+  min-width: 0;
+  padding: 0 7px;
+  display: grid;
+}
+
+.countdown__unit:last-child {
+  border-right: 0;
+}
+
+.countdown__value {
+  font-family: var(--font-display), serif;
+  font-variant-numeric: tabular-nums;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.countdown__label {
+  text-transform: uppercase;
+  opacity: .85;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.closing__content > span {
   font-family: var(--font-display), serif;
   font-size: 29px;
   font-style: italic;
@@ -1085,6 +1091,12 @@ button, summary, a {
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 759px) {
+  .closing__content {
+    top: -180px;
+  }
 }
 
 @media (min-width: 760px) {
@@ -1167,7 +1179,7 @@ button, summary, a {
     grid-area: 2 / 1;
     align-self: end;
     width: 100%;
-    height: 510px;
+    height: 612px;
   }
 
   .editorial__note {
@@ -1178,26 +1190,26 @@ button, summary, a {
   }
 
   .day {
-    grid-template-columns: minmax(340px, .8fr) 1fr;
-    align-items: center;
-    gap: 12%;
-    min-height: 900px;
+    gap: 48px;
   }
 
-  .day__number {
-    font-size: 220px;
+  .day__title {
+    font-size: 64px;
   }
 
-  .day__heading h2 {
-    font-size: 72px;
+  .day__images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 40px;
   }
 
-  .timeline li {
-    grid-template-columns: 34px 110px 1fr;
+  .day__image {
+    aspect-ratio: 370 / 439;
   }
 
-  .timeline p {
-    font-size: 30px;
+  .day__image img {
+    object-fit: contain;
+    height: 100%;
   }
 
   .information__item {
@@ -1225,7 +1237,7 @@ button, summary, a {
 
   .transport-strip div + div {
     border-top: 0;
-    border-left: 1px solid #f5f1e833;
+    border-left: 1px solid var(--line);
     padding: 0 0 0 28px;
   }
 
@@ -1247,19 +1259,26 @@ button, summary, a {
     padding: 58px;
   }
 
-  .faq summary {
-    grid-template-columns: 52px 1fr 28px;
-    min-height: 98px;
-    font-size: 28px;
+  .gift {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 8%;
   }
 
-  .faq details > p {
-    margin-left: 60px;
-    font-size: 14px;
+  .gift__intro h2 {
+    font-size: 77px;
+  }
+
+  .gift__account {
+    padding: 34px 28px;
   }
 
   .closing__content p {
     font-size: 86px;
+  }
+
+  .countdown__value {
+    font-size: 31px;
   }
 
   .footer {

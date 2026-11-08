@@ -5,9 +5,10 @@ import {
   Bus,
   CalendarDays,
   Clock3,
-  MapPin,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { CopyAccountButton } from "@/components/copy-account-button";
+import { Countdown } from "@/components/countdown";
 import { SiteHeader } from "@/components/site-header";
 import { texts } from "@/content/texts";
 
@@ -19,6 +20,7 @@ const information = [
   {
     ...texts.information.items[1],
     map: null,
+    routes: texts.transport,
   },
   {
     ...texts.information.items[2],
@@ -73,7 +75,14 @@ export default function Home() {
           <h2 data-reveal>{texts.announcement.title}</h2>
           <div className="announcement__details" data-reveal>
             <p>{texts.date.long}</p>
-            <span>{texts.monogram}</span>
+            <div className="announcement__monogram">
+              <Image
+                src="/images/logoBodaNegro.png"
+                alt="Logotipo de Jesica y Juan"
+                width={135}
+                height={90}
+              />
+            </div>
             <p>
               {texts.venue.name}
               <br />
@@ -85,12 +94,11 @@ export default function Home() {
         <section className="story section" id="nosotros">
           <div className="story__image" data-reveal>
             <Image
-              src="/images/portrait.jpg"
+              src="/images/fotoAbrazadosBlancoNegro.jpeg"
               alt={texts.story.imageAlt}
               fill
               sizes="(max-width: 760px) 90vw, 44vw"
             />
-            <span className="image-index">{texts.story.imageIndex}</span>
           </div>
           <div className="story__copy" data-reveal>
             <p className="eyebrow">{texts.story.eyebrow}</p>
@@ -117,7 +125,7 @@ export default function Home() {
           </div>
           <figure className="editorial__image editorial__image--one" data-reveal>
             <Image
-              src="/images/editorial-one.jpg"
+              src="/images/fotoCorriendoAYC.jpg"
               alt={texts.editorial.firstImageAlt}
               fill
               sizes="(max-width: 760px) 78vw, 38vw"
@@ -126,7 +134,7 @@ export default function Home() {
           </figure>
           <figure className="editorial__image editorial__image--two" data-reveal>
             <Image
-              src="/images/editorial-two.jpg"
+              src="/images/fotoAbrazadosAYC.jpeg"
               alt={texts.editorial.secondImageAlt}
               fill
               sizes="(max-width: 760px) 88vw, 48vw"
@@ -140,38 +148,29 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="day section section--olive" id="el-dia">
-          <div className="day__heading" data-reveal>
-            <p className="eyebrow">{texts.day.heading}</p>
-            <p className="day__number">{texts.date.day}</p>
-            <h2>
-              {texts.date.month}
-              <br />
-              {texts.date.year}
-            </h2>
-          </div>
-          <div className="day__content">
-            <div className="day__venue" data-reveal>
-              <MapPin aria-hidden="true" />
-              <div>
-                <h3>{texts.venue.name}</h3>
-                <p>{texts.venue.city}</p>
-              </div>
-            </div>
-            <ol className="timeline" aria-label={texts.day.scheduleAriaLabel}>
-              {texts.schedule.map((event, index) => (
-                <li key={event.label} data-reveal>
-                  <span>0{index + 1}</span>
-                  <time>{event.time}</time>
-                  <p>
-                    {event.label}
-                    {"approximate" in event && event.approximate ? (
-                      <small>{texts.day.approximate}</small>
-                    ) : null}
-                  </p>
-                </li>
-              ))}
-            </ol>
+        <section className="day section section--olive" id="el-dia" aria-labelledby="day-title">
+          <h2 className="day__title" id="day-title" data-reveal>
+            {texts.date.long}
+          </h2>
+          <div className="day__images">
+            <figure className="day__image" data-reveal>
+              <Image
+                src="/images/Planning1.png"
+                alt="Planificación de la boda, parte 1"
+                width={370}
+                height={439}
+                sizes="(max-width: 759px) 90vw, 42vw"
+              />
+            </figure>
+            <figure className="day__image" data-reveal>
+              <Image
+                src="/images/Planning2.png"
+                alt="Planificación de la boda, parte 2"
+                width={313}
+                height={435}
+                sizes="(max-width: 759px) 90vw, 42vw"
+              />
+            </figure>
           </div>
         </section>
 
@@ -201,26 +200,33 @@ export default function Home() {
                       />
                     ) : null}
                   </div>
+                  {"routes" in item ? (
+                    <>
+                      <div className="transport-strip">
+                        <Bus aria-hidden="true" />
+                        {item.routes.map((route) => (
+                          <div key={route.origin}>
+                            <strong>{route.origin}</strong>
+                            <span>{texts.transportLabels.departure} {route.departure}</span>
+                            <span>{texts.transportLabels.return} {route.returnTime}</span>
+                          </div>
+                        ))}
+                        <Bus aria-hidden="true" />
+                      </div>
+                      {"note" in item ? (
+                        <p className="information__detail">* {item.note}</p>
+                      ) : null}
+                    </>
+                  ) : null}
                 </article>
               );
             })}
-          </div>
-          <div className="transport-strip" data-reveal>
-            <Bus aria-hidden="true" />
-            {texts.transport.map((route) => (
-              <div key={route.origin}>
-                <strong>{route.origin}</strong>
-                <span>{texts.transportLabels.departure} {route.departure}</span>
-                <span>{texts.transportLabels.return} {route.returnTime}</span>
-              </div>
-            ))}
-            <Bus aria-hidden="true" />
           </div>
         </section>
 
         <section className="transition-section" aria-label={texts.transition.ariaLabel}>
           <Image
-            src="/images/transition.jpg"
+            src="/images/fotoElevacionAtardecer.jpeg"
             alt={texts.transition.imageAlt}
             fill
             sizes="100vw"
@@ -272,28 +278,30 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="faq section" aria-labelledby="faq-title">
-          <header className="section-heading" data-reveal>
-            <p className="eyebrow">{texts.faq.eyebrow}</p>
-            <h2 id="faq-title">{texts.faq.title}</h2>
-          </header>
-          <div className="faq__list">
-            {texts.faq.items.map((item, index) => (
-              <details key={item.question} data-reveal>
-                <summary>
-                  <span>0{index + 1}</span>
-                  {item.question}
-                  <i aria-hidden="true" />
-                </summary>
-                <p>{item.answer}</p>
-              </details>
-            ))}
+        <section className="gift section section--olive" aria-labelledby="gift-title">
+          <div className="gift__intro" data-reveal>
+            <h2 id="gift-title">{texts.gift.title}</h2>
+            <div className="gift__description">
+              {texts.gift.description.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <p className="gift__signoff">
+                {texts.gift.signoff}
+                <br />
+                <em>{texts.gift.signature}</em> {texts.gift.heart}
+              </p>
+            </div>
+          </div>
+          <div className="gift__account" data-reveal>
+            <span className="gift__account-label">{texts.gift.accountLabel}</span>
+            <p className="gift__iban">{texts.gift.iban}</p>
+            <CopyAccountButton value={texts.gift.iban} />
           </div>
         </section>
 
         <section className="closing" aria-label={texts.closing.ariaLabel}>
           <Image
-            src="/images/hero-field.jpg"
+            src="/images/fotoPruebaFinal3.jpg"
             alt={texts.closing.imageAlt}
             fill
             sizes="100vw"
@@ -301,8 +309,8 @@ export default function Home() {
           <div className="closing__shade" aria-hidden="true" />
           <div className="closing__content" data-reveal>
             <p>{texts.closing.message}</p>
+            <Countdown targetDateTime={texts.date.countdownTarget} />
             <span>{texts.monogram}</span>
-            <time dateTime={texts.date.iso}>{texts.date.short}</time>
           </div>
         </section>
       </main>

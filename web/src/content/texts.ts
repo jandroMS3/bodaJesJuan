@@ -10,6 +10,7 @@ export const texts = {
   monogram: "J & J",
   date: {
     iso: "2027-04-17",
+    countdownTarget: "2027-04-17T12:00:00+02:00",
     day: "17",
     short: "17 · 04 · 27",
     long: "17 de abril de 2027",
@@ -31,15 +32,8 @@ export const texts = {
     deadline: "28 de febrero de 2027",
     url:
       process.env.NEXT_PUBLIC_RSVP_URL ??
-      "https://docs.google.com/forms/",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdKm1Dltw008V3YrkLin-RW6aIRD9W0iYQaweKHZMhwr1Mquw/viewform?usp=header",
   },
-  schedule: [
-    { time: "11:30–11:45", label: "Llegada" },
-    { time: "12:00", label: "Ceremonia" },
-    { time: "13:00", label: "Cóctel", approximate: true },
-    { time: "15:00", label: "Comida", approximate: true },
-    { time: "17:30", label: "Fiesta", approximate: true },
-  ],
   transport: [
     { origin: "Valencia", departure: "11:00", returnTime: "00:00" },
     { origin: "Vila-real", departure: "10:30", returnTime: "00:00" },
@@ -68,8 +62,7 @@ export const texts = {
     title: "¡Nos casamos!",
   },
   story: {
-    imageAlt: "Una pareja se abraza durante su sesión de preboda",
-    imageIndex: "01 / 05",
+    imageAlt: "Jesica y Juan abrazados en una fotografía en blanco y negro",
     eyebrow: "Jesica & Juan",
     titleFirstLine: "Elegirnos.",
     titleSecondLine: "Una y otra vez.",
@@ -82,17 +75,12 @@ export const texts = {
     eyebrow: "Nuestra historia",
     titleFirstLine: "Juntos",
     titleSecondLine: "siempre mejor.",
-    firstImageAlt: "Pareja celebrando junta al aire libre",
+    firstImageAlt: "Jesica y Juan corriendo juntos junto a la Ciudad de las Artes y las Ciencias",
     firstCaption: "Valencia · Donde todo comenzó",
-    secondImageAlt: "Un instante espontáneo de una celebración",
+    secondImageAlt: "Jesica y Juan abrazados y sonrientes en primer plano",
     secondCaption: "Y todo lo que nos queda por vivir.",
     noteFirstLine: "Dos caminos.",
     noteSecondLine: "Una misma dirección.",
-  },
-  day: {
-    heading: "Nuestro gran día",
-    scheduleAriaLabel: "Horarios de la celebración",
-    approximate: "aprox.",
   },
   information: {
     eyebrow: "Nosotros ponemos la ilusión, vosotros las ganas de disfrutar.",
@@ -107,13 +95,14 @@ export const texts = {
         title: "Autobuses",
         body: "Habrá servicio de ida y vuelta desde Valencia y Vila-real.",
         detail: "Valencia 11:00 · Vila-real 10:30 · Regreso 00:00",
+        note: "Más información de las ubicaciones exactas próximamente",
       },
       {
         title: "Alojamiento",
       },
       {
         title: "Vestimenta",
-        body: "Formal · boda de día",
+        body: "Formal · Boda de día",
         detail: "Elegante, natural y preparada para disfrutar hasta el final.",
       },
     ],
@@ -124,9 +113,9 @@ export const texts = {
   },
   transition: {
     ariaLabel: "Nuestro recorrido",
-    imageAlt: "Carretera abierta entre campos al atardecer",
+    imageAlt: "Jesica y Juan abrazados al atardecer en el campo",
     quoteFirstLine: "Las mejores cosas de la vida",
-    quoteSecondLine: "Son más bonitas cuando se comparten.",
+    quoteSecondLine: "son más bonitas cuando se comparten.",
   },
   rsvpSection: {
     eyebrow: "Confirmación",
@@ -140,50 +129,22 @@ export const texts = {
     button: "Confirmar asistencia",
     help: "Puedes enviar otra respuesta si estás ayudando a un familiar.",
   },
-  faq: {
-    eyebrow: "Para que no os falte ningún detalle",
-    title: "Antes del gran día",
-    items: [
-      {
-        question: "¿A qué hora debemos llegar?",
-        answer:
-          "¡Os esperamos entre las 11:30 y las 11:45! La ceremonia comenzará a las 12:00.",
-      },
-      {
-        question: "¿Hay aparcamiento?",
-        answer:
-          "Sí. La Masía del Olivar dispone de aparcamiento gratuito para los invitados.",
-      },
-      {
-        question: "¿Habrá autobús?",
-        answer:
-          "Sí, habrá servicio de ida y vuelta desde Valencia y Vila-real. Podréis indicar qué trayectos necesitáis al confirmar la asistencia.",
-      },
-      {
-        question: "¿Puedo ir acompañado o acompañada?",
-        answer:
-          "Sí. Recordad que cada persona debe completar su propia confirmación. Un familiar también puede enviar varias respuestas si alguien necesita ayuda.",
-      },
-      {
-        question: "¿Cómo comunico una alergia?",
-        answer:
-          "Podéis indicarla en el formulario de confirmación. Para necesidades alimentarias complejas, poneos también en contacto directamente con nosotros.",
-      },
-      {
-        question: "¿Hasta cuándo puedo confirmar?",
-        answer: "Necesitamos vuestra respuesta antes del 28 de febrero de 2027.",
-      },
-      {
-        question: "¿Dónde puedo alojarme?",
-        answer:
-          "Recomendamos el Ad Hoc Parque Hotel, en Torre en Conill. Al llamar, indicad que asistís a nuestra boda para consultar el descuento disponible.",
-      },
+  gift: {
+    title: "Regalo",
+    description: [
+      "El mejor regalo es poder compartir este día tan especial con vosotros.",
+      "Si, además, queréis tener un detalle con nosotros, podéis ayudarnos a hacer realidad todos esos sueños que todavía nos quedan por cumplir juntos.",
     ],
+    signoff: "Con todo nuestro cariño,",
+    signature: "Jesica & Juan",
+    heart: "🤍",
+    accountLabel: "Número de cuenta",
+    iban: "ES14 0182 5319 7000 0218 610",
   },
   closing: {
     ariaLabel: "Cierre",
-    imageAlt: "Pareja alejándose junta por el campo",
-    message: "Nos vemos el 17.",
+    imageAlt: "Jesica y Juan montando juntos en bicicleta por el campo",
+    message: "¡Nos vemos en la meta!",
   },
   footer: {
     location: "Bétera",
