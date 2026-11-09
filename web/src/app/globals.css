@@ -195,7 +195,7 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 34px;
-  overflow: hidden;
+  overflow: visible;
 }
 .editorial__title { padding: 18px 0 26px; }
 .editorial__title h2 {
@@ -203,7 +203,7 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   font-family: var(--font-display), serif;
   font-size: 66px;
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 1.1;
 }
 .editorial__image { position: relative; margin: 0; }
 .editorial__image--one { width: 78%; height: 430px; margin-left: auto; }
@@ -449,16 +449,17 @@ button, summary, a { -webkit-tap-highlight-color: transparent; }
   .story { grid-template-columns: minmax(340px, 0.85fr) 1fr; gap: 9%; align-items: center; }
   .story__image { min-height: 720px; }
   .editorial {
-    min-height: 1260px;
+    min-height: 1400px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 380px 580px 200px;
-    gap: 40px 6%;
+    grid-template-rows: auto 650px auto;
+    gap: 60px 80px;
+    align-items: start;
   }
-  .editorial__title { align-self: end; }
-  .editorial__title h2 { font-size: 104px; }
-  .editorial__image--one { width: 86%; height: 570px; grid-column: 2; grid-row: 1 / span 2; }
-  .editorial__image--two { width: 100%; height: 612px; grid-column: 1; grid-row: 2; align-self: end; }
-  .editorial__note { grid-column: 2; grid-row: 3; margin: 0; padding-left: 15%; font-size: 31px; }
+  .editorial__title { grid-column: 1 / -1; align-self: start; padding-bottom: 40px; text-align: center; }
+  .editorial__title h2 { font-size: 104px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .editorial__image--one { width: 100%; height: 500px; grid-column: 2; grid-row: 2; margin-top: 40px; }
+  .editorial__image--two { width: 80%; height: 580px; grid-column: 1; grid-row: 2; margin-top: 40px; }
+  .editorial__note { grid-column: 2; grid-row: 3; margin: 0; padding-left: 0; font-size: 31px; }
   .day { gap: 48px; }
   .day__title { font-size: 64px; }
   .day__images { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }

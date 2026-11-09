@@ -580,7 +580,7 @@ button, summary, a {
   gap: 34px;
   display: grid;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .editorial__title {
@@ -592,7 +592,7 @@ button, summary, a {
   margin: 0;
   font-size: 66px;
   font-weight: 400;
-  line-height: .9;
+  line-height: 1.1;
 }
 
 .editorial__image {
@@ -1155,37 +1155,45 @@ button, summary, a {
   }
 
   .editorial {
-    grid-template-rows: 380px 580px 200px;
+    grid-template-rows: auto 650px auto;
     grid-template-columns: 1fr 1fr;
-    gap: 40px 6%;
-    min-height: 1260px;
+    align-items: start;
+    gap: 60px 80px;
+    min-height: 1400px;
   }
 
   .editorial__title {
-    align-self: end;
+    text-align: center;
+    grid-column: 1 / -1;
+    align-self: start;
+    padding-bottom: 40px;
   }
 
   .editorial__title h2 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 104px;
+    overflow: hidden;
   }
 
   .editorial__image--one {
-    grid-area: 1 / 2 / span 2;
-    width: 86%;
-    height: 570px;
+    grid-area: 2 / 2;
+    width: 100%;
+    height: 500px;
+    margin-top: 40px;
   }
 
   .editorial__image--two {
     grid-area: 2 / 1;
-    align-self: end;
-    width: 100%;
-    height: 612px;
+    width: 80%;
+    height: 580px;
+    margin-top: 40px;
   }
 
   .editorial__note {
     grid-area: 3 / 2;
     margin: 0;
-    padding-left: 15%;
+    padding-left: 0;
     font-size: 31px;
   }
 

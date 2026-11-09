@@ -118,9 +118,7 @@ export default function Home() {
           <div className="editorial__title" data-reveal>
             <p className="eyebrow">{texts.editorial.eyebrow}</p>
             <h2>
-              {texts.editorial.titleFirstLine}
-              <br />
-              {texts.editorial.titleSecondLine}
+              {texts.editorial.titleFirstLine} {texts.editorial.titleSecondLine}
             </h2>
           </div>
           <figure className="editorial__image editorial__image--one" data-reveal>

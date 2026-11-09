@@ -340,12 +340,12 @@ const texts = {
     transport: [
         {
             origin: "Valencia",
-            departure: "11:00",
+            departure: "11:15",
             returnTime: "00:00"
         },
         {
             origin: "Vila-real",
-            departure: "10:30",
+            departure: "10:45",
             returnTime: "00:00"
         }
     ],
@@ -402,7 +402,7 @@ const texts = {
             {
                 title: "Autobuses",
                 body: "Habrá servicio de ida y vuelta desde Valencia y Vila-real.",
-                detail: "Valencia 11:00 · Vila-real 10:30 · Regreso 00:00",
+                detail: "Valencia 11:00 · Vila-real 10:45 · Regreso 00:00",
                 note: "Más información de las ubicaciones exactas próximamente"
             },
             {
