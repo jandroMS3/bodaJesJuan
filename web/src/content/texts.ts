@@ -103,7 +103,7 @@ export const texts = {
       {
         title: "Vestimenta",
         body: "Formal · Boda de día",
-        detail: "Elegante, natural y preparada para disfrutar hasta el final.",
+        detail: "Elegante, natural y preparados para disfrutar hasta el final.",
       },
     ],
   },
@@ -139,7 +139,7 @@ export const texts = {
     signature: "Jesica & Juan",
     heart: "🤍",
     accountLabel: "Número de cuenta",
-    iban: "ES14 0182 5319 7000 0218 610",
+    iban: "ES14 0182 5319 7000 0218 6106",
   },
   closing: {
     ariaLabel: "Cierre",
